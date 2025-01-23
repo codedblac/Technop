@@ -1,0 +1,107 @@
+/* Initial transparent navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: transparent; /* Start as transparent */
+  transition: background-color 0.3s ease; /* Smooth transition */
+  z-index: 1000; /* Keep navbar on top */
+  display: flex;
+  justify-content: space-between; /* Space between logo and navbar items */
+  align-items: center; /* Vertically center the items */
+  padding: 10px 20px; /* Adjust the padding for spacing */
+}
+
+/* Solid navbar with white background when scrolled */
+.navbar.scrolled {
+  background-color: white; /* Change to white when scrolled */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add shadow for better visibility */
+}
+
+/* Navbar Brand - Make sure the logo is on the left */
+.navbar-brand {
+  color: #333; /* Change logo color to dark for better visibility on white background */
+  font-size: 45px;
+  font-family: Germania, sans-serif;
+  cursor: pointer;
+  display: inline-block; /* Make the logo behave like inline element */
+}
+
+.navbar-brand img {
+  height: 40px; /* Adjust the logo image size */
+  width: auto;
+}
+
+/* Icon bar color */
+.icon-bar {
+  background-color: #000;
+}
+
+/* Navbar links container (centered) */
+.navbar-collapse {
+  display: flex;
+  justify-content: center; /* Center the navigation links */
+  flex-grow: 1; /* Allow navbar-collapse to take full width */
+}
+
+/* Navbar items (links) */
+.nav {
+  font-family: 'Lithos Pro', sans-serif;
+  color: #333; /* Change the link color to dark for better visibility on white background */
+  display: flex;
+  list-style-type: none; /* Remove bullet points */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+.nav li {
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.nav li a {
+  color: #333; /* Change link color to dark */
+  text-decoration: none;
+}
+
+.nav li:after {
+  content: '';
+  display: block;
+  border-bottom: 2px solid #38fd07;
+  transform: scaleX(0);
+  transition: .2s ease-in-out;
+}
+
+.nav li:hover:after {
+  transform: scaleX(1);
+}
+
+/* Responsive styling for small screens */
+@media (max-width: 768px) {
+  /* Collapse navbar links and center logo and hamburger icon */
+  .navbar-collapse {
+    text-align: center;
+    display: none; /* Initially hide the navbar links */
+    flex-direction: column; /* Stack links vertically */
+  }
+
+  .navbar-collapse.collapse {
+    display: block; /* Show navbar links when toggle is active */
+  }
+
+  /* Adjust the size of the navbar items on small screens */
+  .nav li {
+    font-size: 18px; /* Slightly larger text on small screens */
+  }
+
+  /* Show the toggle button (hamburger menu) on small screens */
+  .navbar-toggle {
+    display: block;
+  }
+
+  /* Hide navbar items (links) on small screens by default */
+  .navbar-collapse.in {
+    display: block; /* Show when clicked */
+  }
+}
